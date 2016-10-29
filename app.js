@@ -18,9 +18,9 @@ var commentRoutes    = require("./routes/comments"),
     
     //require moment
     app.locals.moment = require('moment');
-    
-// mongoose.connect("mongodb://localhost/yelp_camp_v10");
-mongoose.connect("mongodb://ratecamp:campgrounds@ds011860.mlab.com:11860/ratecamp");
+var url = process.env.DATABASEURL || "mongodb://localhost/rate_camp"
+mongoose.connect(url);
+// mongoose.connect("mongodb://ratecamp:campgrounds@ds011860.mlab.com:11860/ratecamp");
 //mongodb://ratecamp:chicken123>@ds029793.mlab.com:29793/ratecamp
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
